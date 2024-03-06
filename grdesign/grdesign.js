@@ -1,28 +1,26 @@
 
 
 function handleEvents () {
+
     let showdiv = document.querySelector('.headershow__contentjs');
     showdiv.addEventListener('click', muestraDiv);
     showdiv.addEventListener('mouseover', muestraDiv);
     showdiv.addEventListener('mouseout', hideDiv);
+
+
     let boton = document.querySelector ('.boton__responsive');
     boton.addEventListener ('click', apareceMenu);
 
     let slider =  document.getElementById('mainSlider');
     slider.addEventListener ('wheel', scrollHorizontal);
   
-    
-    let botonfooter = document.getElementById ('footer__pinterest');
-    botonfooter.addEventListener ('mouseover', animaFooter);
-    botonfooter.addEventListener ('mouseout', stopFooter);
-   
-    let botonfooterb = document.getElementById ('footer__twitter');
-    botonfooterb.addEventListener ('mouseover', animaFooterb);
-    botonfooterb.addEventListener ('mouseout', stopFooterb);
-   
-    let botonfooterc = document.getElementById ('footer__tiktok');
-    botonfooterc.addEventListener ('mouseover', animaFooterc);
-    botonfooterc.addEventListener ('mouseout', stopFooterc);
+
+    let footer = document.getElementsByClassName("boton__footer");
+    for (var i = 0; i < footer.length; i++) {    
+    footer[i].addEventListener("click",  animaFooter);
+    footer[i].addEventListener("mouseover",  animaFooter); 
+    }
+
 
     let videoplay = document.getElementsByClassName("videoslide__container");
     for (var i = 0; i < videoplay.length; i++) {    
@@ -123,46 +121,39 @@ slider.scrollLeft = sLeft - dragged;
 
 // FOOTER
 
-let iconopinterest = document.getElementById ('b2');
-let iconotwitter = document.getElementById ('b3');
-let iconotiktok = document.getElementById ('b4');
-
- function animaFooter()  {
-  if (iconopinterest.className == "fa-brands fa-pinterest-p")
-  {iconopinterest.className = "fa-brands fa-pinterest-p fa-bounce";}
-}
-
-function animaFooterb()  {
-if (iconotwitter.className == "fa-brands fa-twitter")
-{iconotwitter.className = "fa-brands fa-twitter fa-bounce";}
-}
-
-function animaFooterc()  {
-  if (iconotiktok.className == "fa-brands fa-tiktok")
-  {iconotiktok.className = "fa-brands fa-tiktok fa-bounce";}
-}
 
 
-function stopFooter() {
+ function animaFooter(e)  {
+
+  if (e.target.className == "fa-brands fa-twitter")
+{e.target.className = "fa-brands fa-twitter fa-bounce";}
+
+if (e.target.className == "fa-brands fa-pinterest-p")
+{e.target.className = "fa-brands fa-pinterest-p fa-bounce";}
+
+if (e.target.className == "fa-brands fa-tiktok")
+{e.target.className = "fa-brands fa-tiktok fa-bounce";}
+
   setTimeout(()=> {
-    if (iconopinterest.className == "fa-brands fa-pinterest-p fa-bounce")
-  { iconopinterest.className = "fa-brands fa-pinterest-p";} 
-}, 900);
-}
+  
+  if (e.target.className == "fa-brands fa-twitter fa-bounce")
+  {e.target.className = "fa-brands fa-twitter";}
+  
+  if (e.target.className == "fa-brands fa-pinterest-p fa-bounce")
+{e.target.className = "fa-brands fa-pinterest-p";}
 
-function stopFooterb()  {
-  setTimeout(()=> {
-  if (iconotwitter.className == "fa-brands fa-twitter fa-bounce")
-  {iconotwitter.className = "fa-brands fa-twitter";}
+if (e.target.className == "fa-brands fa-tiktok fa-bounce")
+{e.target.className = "fa-brands fa-tiktok";}
+
   }, 900);
-}
 
-function stopFooterc()  {
-  setTimeout(()=> {
-  if (iconotiktok.className == "fa-brands fa-tiktok fa-bounce")
-  {iconotiktok.className = "fa-brands fa-tiktok";}
-  }, 900);
-}
+
+
+ }
+
+
+
+
 
 //CURSOR
 
@@ -219,3 +210,6 @@ document.querySelectorAll("[data-cursor]").forEach((item) => {
 
 
 window.onload = handleEvents;
+
+
+

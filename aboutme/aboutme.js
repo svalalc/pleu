@@ -9,45 +9,14 @@ function handleEvents () {
     let boton = document.querySelector ('.boton__responsive');
     boton.addEventListener ('click', apareceMenu);
     
-    let botonfooter = document.getElementById ('footer__pinterest');
-    botonfooter.addEventListener ('mouseover', animaFooter);
-    botonfooter.addEventListener ('mouseout', stopFooter);
-   
-    let botonfooterb = document.getElementById ('footer__twitter');
-    botonfooterb.addEventListener ('mouseover', animaFooterb);
-    botonfooterb.addEventListener ('mouseout', stopFooterb);
-   
-    let botonfooterc = document.getElementById ('footer__tiktok');
-    botonfooterc.addEventListener ('mouseover', animaFooterc);
-    botonfooterc.addEventListener ('mouseout', stopFooterc);
-
-    let highlight = document.getElementById('highlight-text');
-    highlight.addEventListener('mouseover', showImage);
-    highlight.addEventListener('click', showImage);
-    highlight.addEventListener('mouseout', hideImage);
-    highlight.addEventListener('click', hideImage);
+    let footer = document.getElementsByClassName("boton__footer");
+    for (var i = 0; i < footer.length; i++) {    
+    footer[i].addEventListener("click",  animaFooter);
+    footer[i].addEventListener("mouseover",  animaFooter); 
+    }
 
 
-    let highlightb = document.getElementById('highlight-text2');
-    highlightb.addEventListener('mouseover', showImage2);
-    highlightb.addEventListener('click', showImage2);
-    highlightb.addEventListener('mouseout', hideImage2);
-    highlightb.addEventListener('click', hideImage2);
-
-
-    let highlightc = document.getElementById('highlight-text3');
-    highlightc.addEventListener('mouseover', showImage3);
-    highlightc.addEventListener('click', showImage3);
-    highlightc.addEventListener('mouseout', hideImage3);
-    highlightc.addEventListener('click', hideImage3);
-
-    
-    let highlightd = document.getElementById('highlight-text4');
-    highlightd.addEventListener('mouseover', showImage4);
-    highlightd.addEventListener('click', showImage4);
-    highlightd.addEventListener('mouseout', hideImage4);
-    highlightd.addEventListener('click', hideImage4);
-}
+  }
 
 
 function muestraDiv () {
@@ -84,46 +53,31 @@ function apareceMenu() {
 
 // FOOTER
 
-let iconopinterest = document.getElementById ('b2');
-let iconotwitter = document.getElementById ('b3');
-let iconotiktok = document.getElementById ('b4');
+function animaFooter(e)  {
 
- function animaFooter()  {
-  if (iconopinterest.className == "fa-brands fa-pinterest-p")
-  {iconopinterest.className = "fa-brands fa-pinterest-p fa-bounce";}
-}
+  if (e.target.className == "fa-brands fa-twitter")
+{e.target.className = "fa-brands fa-twitter fa-bounce";}
 
-function animaFooterb()  {
-if (iconotwitter.className == "fa-brands fa-twitter")
-{iconotwitter.className = "fa-brands fa-twitter fa-bounce";}
-}
+if (e.target.className == "fa-brands fa-pinterest-p")
+{e.target.className = "fa-brands fa-pinterest-p fa-bounce";}
 
-function animaFooterc()  {
-  if (iconotiktok.className == "fa-brands fa-tiktok")
-  {iconotiktok.className = "fa-brands fa-tiktok fa-bounce";}
-}
+if (e.target.className == "fa-brands fa-tiktok")
+{e.target.className = "fa-brands fa-tiktok fa-bounce";}
 
-
-function stopFooter() {
   setTimeout(()=> {
-    if (iconopinterest.className == "fa-brands fa-pinterest-p fa-bounce")
-  { iconopinterest.className = "fa-brands fa-pinterest-p";} 
-}, 900);
-}
+  
+  if (e.target.className == "fa-brands fa-twitter fa-bounce")
+  {e.target.className = "fa-brands fa-twitter";}
+  
+  if (e.target.className == "fa-brands fa-pinterest-p fa-bounce")
+{e.target.className = "fa-brands fa-pinterest-p";}
 
-function stopFooterb()  {
-  setTimeout(()=> {
-  if (iconotwitter.className == "fa-brands fa-twitter fa-bounce")
-  {iconotwitter.className = "fa-brands fa-twitter";}
-  }, 900);
-}
+if (e.target.className == "fa-brands fa-tiktok fa-bounce")
+{e.target.className = "fa-brands fa-tiktok";}
 
-function stopFooterc()  {
-  setTimeout(()=> {
-  if (iconotiktok.className == "fa-brands fa-tiktok fa-bounce")
-  {iconotiktok.className = "fa-brands fa-tiktok";}
-  }, 900);
-}
+  }, 900); }
+
+
 
 //CURSOR
 
@@ -188,55 +142,7 @@ function showSlides(n) {
 
 }
 
-let image1 = document.getElementById('imagen1');
-let image2 = document.getElementById ('imagen2');
-let image3 = document.getElementById ('imagen3');
-let image4 = document.getElementById ('imagen4');
 
-function showImage () {
-  image1.style.opacity = '100%';
-}
-
-
-function hideImage () {
-  setTimeout(()=> {
-  image1.style.opacity = '0';
-  }, 2000)
-}
-
-function showImage2 () {
-  image2.style.opacity = '100%';
-}
-
-
-function hideImage2 () {
-  setTimeout(()=> {
-  image2.style.opacity = '0';
-  }, 2000)
-}
-
-
-function showImage3 () {
-  image3.style.opacity = '100%';
-}
-
-
-function hideImage3 () {
-  setTimeout(()=> {
-  image3.style.opacity = '0';
-  }, 2000)
-}
-
-function showImage4 () {
-  image4.style.opacity = '100%';
-}
-
-
-function hideImage4 () {
-  setTimeout(()=> {
-  image4.style.opacity = '0';
-  }, 2000)
-}
 
 document.addEventListener ('mousemove', parallax);
 
@@ -250,9 +156,6 @@ function parallax (e) {
 }
 
 window.onload = handleEvents;
-
-
-
 
 
 

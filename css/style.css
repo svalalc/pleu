@@ -249,7 +249,9 @@ background-color: black;
 
 .indexlist {
     background-color: transparent;
+    -webkit-backdrop-filter: blur(10px); 
     backdrop-filter: blur(10px);
+
 
 }
 
@@ -322,11 +324,12 @@ footer {
     justify-content: center;
     height: 95vh;
     width: 100%;
+    margin: -5% 0 0 0;
 }
 
 .heroTitle {
-    margin: -10rem 0 0 0;
-    height: 95%;
+    margin: 0;
+    height: 100%;
     width: auto;
     animation: 2.5s fadeIn;
 
@@ -345,7 +348,8 @@ footer {
 }  
 
 .undertext {
-    margin: -4rem 0 0 0;
+    position: absolute;
+    bottom: 13%;
     font-size: .8rem;
     font-family: Regular;
     color: white;
@@ -498,6 +502,7 @@ font-family: Regular;
     font-family: 'Akira Expanded';
     font-size: 3.5vw;
     line-height: 4vw;
+
 }
 
 
@@ -505,7 +510,7 @@ font-family: Regular;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgb(255, 255, 255);
     color: transparent;
-    z-index: 1;
+
 
 }
 .aboutme__buttoncontainer {
@@ -566,8 +571,6 @@ font-family: Regular;
 
 .imageshow {
     height: 22.5rem;
-    opacity: 0;
-    transition: opacity 0.3s ease-in;
 
 }
 
@@ -600,7 +603,9 @@ font-family: Regular;
 
 @media screen and (max-width:1000px) {
 
-
+    header {
+        height: 2vh;
+    }
 
     .header__responsive {
         padding: 2rem 0 0 0;
@@ -608,7 +613,6 @@ font-family: Regular;
         display: flex;
         justify-content: center;
         flex-direction: column;
-        
         
     }
 
@@ -630,6 +634,9 @@ font-family: Regular;
         display: block;
     }
 
+        .boton__footer {
+            font-size: 2rem;
+        }
 
 }
 
@@ -649,7 +656,7 @@ font-family: Regular;
 
 @media screen and (max-height: 900px) {
     .heroTitle {
-        height: 80%;
+        height: 90%;
     }
     .undertext{
         margin: 0;
@@ -683,6 +690,7 @@ font-family: Regular;
 
     .heroTitle {
         height: 62%;
+    
     }
 }
     
